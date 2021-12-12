@@ -27,7 +27,7 @@ var (
 
 	// annotations on source pod (by user) and proxy pods (copied by mutating admission webhook)
 
-	AnnotationKeyElect = KeyPrefix + "elect"
+	AnnotationKeyElect = "vcluster.loft.sh/name" //KeyPrefix + "elect"
 
 	// AnnotationKeyNoReservation tells the proxy scheduler to work with a custom scheduler in the target cluster,
 	// instead of the candidate scheduler, waiting for candidate pods to be scheduled, instead of reserved,
