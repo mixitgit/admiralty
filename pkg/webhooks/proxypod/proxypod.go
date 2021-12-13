@@ -68,6 +68,11 @@ func (m mutator) mutate(pod *corev1.Pod) error {
 		return nil
 	}
 
+	// check if the pod is not a CoreDNS
+	if a, ok := pod.Annotations["vcluster.loft.sh/service-account-name"]; ok && a == "coredns" {
+		return nil
+	}
+
 	// only save the source manifest if it's not set already
 	// webhooks may be run multiple times on the same object
 	// and have to be idempotent
